@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alumnos MCSD Mañana\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj": {}
+    "C:\\Users\\felix\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alumnos MCSD Mañana\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj": {
+    "C:\\Users\\felix\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj",
+        "projectUniqueName": "C:\\Users\\felix\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj",
         "projectName": "ChatSignalRAzurePost",
-        "projectPath": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj",
-        "packagesPath": "C:\\Users\\Alumnos MCSD Mañana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\obj\\",
+        "projectPath": "C:\\Users\\felix\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost.csproj",
+        "packagesPath": "C:\\Users\\felix\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\felix\\Documents\\GitHub\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\ChatSignalRAzurePost\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alumnos MCSD Mañana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\felix\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -61,7 +61,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.15, )"
+              "version": "[6.0.16, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
