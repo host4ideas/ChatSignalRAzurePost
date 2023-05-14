@@ -7,6 +7,6 @@ namespace ChatSignalRAzurePost.Data
     {
         public ChatContext(DbContextOptions<ChatContext> options) : base(options) { }
 
-        public DbSet<ChatPost> Posts { get; set; }
+        public DbSet<ChatPost> ChatPosts { get; set; }
     }
 }

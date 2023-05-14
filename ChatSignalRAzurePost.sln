@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.33627.172
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatSignalRAzurePost", "ChatSignalRAzurePost\ChatSignalRAzurePost.csproj", "{DD39CA62-80B9-45F7-B3B5-09FADBB7B7A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatSignalRAzurePost", "ChatSignalRAzurePost\ChatSignalRAzurePost.csproj", "{C5EB2030-32B5-405F-AFD9-32451B3B4004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DD39CA62-80B9-45F7-B3B5-09FADBB7B7A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD39CA62-80B9-45F7-B3B5-09FADBB7B7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD39CA62-80B9-45F7-B3B5-09FADBB7B7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD39CA62-80B9-45F7-B3B5-09FADBB7B7A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5EB2030-32B5-405F-AFD9-32451B3B4004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5EB2030-32B5-405F-AFD9-32451B3B4004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5EB2030-32B5-405F-AFD9-32451B3B4004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5EB2030-32B5-405F-AFD9-32451B3B4004}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {011CEE2B-BA2B-4997-8B11-19137A2AEA81}
+		SolutionGuid = {826426FD-DB27-416A-8477-268EAFD368E1}
 	EndGlobalSection
 EndGlobal

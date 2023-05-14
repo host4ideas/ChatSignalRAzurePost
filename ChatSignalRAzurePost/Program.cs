@@ -6,15 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-string sqlCnn = builder.Configuration.GetConnectionString("Sql");
+// BBDD
+string cnnSql = builder.Configuration.GetConnectionString("SqlAzure");
+builder.Services.AddDbContext<ChatContext>(options => options.UseSqlServer(cnnSql));
+
+// SignalR
 string signalrCnn = builder.Configuration.GetConnectionString("SignalR");
-
 builder.Services.AddSignalR().AddAzureSignalR(signalrCnn);
-
-builder.Services.AddDbContext<ChatContext>(options =>
-{
-    options.UseSqlServer(sqlCnn);
-});
 
 builder.Services.AddControllersWithViews();
 

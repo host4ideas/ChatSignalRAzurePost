@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ChatSignalRAzurePost.Data;
 using ChatSignalRAzurePost.Models;
@@ -14,23 +19,23 @@ namespace ChatSignalRAzurePost.Controllers
             _context = context;
         }
 
-        // GET: Chat
+        // GET: ChatPosts
         public async Task<IActionResult> Index()
         {
-            return _context.Posts != null ?
-                        View(await _context.Posts.ToListAsync()) :
-                        Problem("Entity set 'ChatContext.Posts'  is null.");
+            return _context.ChatPosts != null ?
+                        View(await _context.ChatPosts.OrderByDescending(x => x.Id).ToListAsync()) :
+                        Problem("Entity set 'ChatContext.ChatPosts'  is null.");
         }
 
-        // GET: Chat/Details/5
+        // GET: ChatPosts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Posts == null)
+            if (id == null || _context.ChatPosts == null)
             {
                 return NotFound();
             }
 
-            var chatPost = await _context.Posts
+            var chatPost = await _context.ChatPosts
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (chatPost == null)
             {
@@ -40,44 +45,49 @@ namespace ChatSignalRAzurePost.Controllers
             return View(chatPost);
         }
 
-        // GET: Chat/Create
-        public IActionResult Create()
+        private async Task<int> GetMaxChatPostAsync()
         {
-            return View();
+            int maxId = 1;
+
+            if (await _context.ChatPosts.AnyAsync())
+            {
+                maxId = await this._context.ChatPosts.MaxAsync(x => x.Id) + 1;
+            }
+
+            return maxId;
         }
 
-        // POST: Chat/Create
+        // POST: ChatPosts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string sender, string message)
+        public async Task<IActionResult> Create(string message, string sender)
         {
-            ChatPost chatMessage = new()
-            {
-                Id = await this.GetMaxMessageAsync(),
-                Message = message,
-                Sender = sender
-            };
-
             if (ModelState.IsValid)
             {
-                await _context.Posts.AddAsync(chatMessage);
+                ChatPost chatPost = new()
+                {
+                    Id = await GetMaxChatPostAsync(),
+                    Message = message,
+                    Sender = sender
+                };
+
+                await _context.ChatPosts.AddAsync(chatPost);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            return View(chatMessage);
+            return RedirectToAction(nameof(Index));
         }
 
-        // GET: Chat/Edit/5
+        // GET: ChatPosts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Posts == null)
+            if (id == null || _context.ChatPosts == null)
             {
                 return NotFound();
             }
 
-            var chatPost = await _context.Posts.FindAsync(id);
+            var chatPost = await _context.ChatPosts.FindAsync(id);
             if (chatPost == null)
             {
                 return NotFound();
@@ -85,7 +95,7 @@ namespace ChatSignalRAzurePost.Controllers
             return View(chatPost);
         }
 
-        // POST: Chat/Edit/5
+        // POST: ChatPosts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -120,15 +130,15 @@ namespace ChatSignalRAzurePost.Controllers
             return View(chatPost);
         }
 
-        // GET: Chat/Delete/5
+        // GET: ChatPosts/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Posts == null)
+            if (id == null || _context.ChatPosts == null)
             {
                 return NotFound();
             }
 
-            var chatPost = await _context.Posts
+            var chatPost = await _context.ChatPosts
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (chatPost == null)
             {
@@ -138,40 +148,28 @@ namespace ChatSignalRAzurePost.Controllers
             return View(chatPost);
         }
 
-        // POST: Chat/Delete/5
+        // POST: ChatPosts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Posts == null)
+            if (_context.ChatPosts == null)
             {
-                return Problem("Entity set 'ChatContext.Posts'  is null.");
+                return Problem("Entity set 'ChatContext.ChatPosts'  is null.");
             }
-            var chatPost = await _context.Posts.FindAsync(id);
+            var chatPost = await _context.ChatPosts.FindAsync(id);
             if (chatPost != null)
             {
-                _context.Posts.Remove(chatPost);
+                _context.ChatPosts.Remove(chatPost);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private async Task<int> GetMaxMessageAsync()
-        {
-            int max = 0;
-
-            if (await this._context.Posts.AnyAsync())
-            {
-                max = await this._context.Posts.MaxAsync(x => x.Id) + 1;
-            }
-
-            return max;
-        }
-
         private bool ChatPostExists(int id)
         {
-            return (_context.Posts?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.ChatPosts?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
